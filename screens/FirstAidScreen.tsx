@@ -1,4 +1,4 @@
-// ContactScreen — contact info / support
+// FirstAidScreen — first aid course details
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
 
-const LifeSkillsScreen = ({ navigation }: { navigation: any }) => {
+const FirstAidScreen = ({ navigation }: { navigation: any }) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
@@ -50,48 +50,50 @@ const LifeSkillsScreen = ({ navigation }: { navigation: any }) => {
           )}
         </View>
 
-         <View style={styles.glassWrapper}>
+        {/* Glassmorphic Scrollable Box */}
+        <View style={styles.glassWrapper}>
           <BlurView intensity={80} tint="light" style={styles.glassBox}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
-              <Text style={styles.title}>Contact Information</Text>
+              <Text style={styles.courseTitle}>First Aid Training</Text>              
+              <Text style={styles.sectionTitle}>Modules</Text>
+      <Text style={styles.sectionText}>
+        • CPR and AED Usage{"\n"}
+        • Bleeding and Shock Management{"\n"}
+        • Fractures and Burns{"\n"}
+        • Emergency Scene Safety{"\n"}
+        • Legal and Ethical Considerations
+      </Text>
 
-              <Text style={styles.label}>Company Name</Text>
-              <Text style={styles.value}>Empower The Nation</Text>
+      <Text style={styles.sectionTitle}>Duration</Text>
+      <Text style={styles.sectionText}>6 Months (Weekend classes available)</Text>
 
-              <Text style={styles.label}>Phone</Text>
-              <Text style={styles.value}>+27 21 555 1234</Text>
+      <Text style={styles.sectionTitle}>Certification</Text>
+      <Text style={styles.sectionText}>Accredited by the National Health Council. Certificate issued upon completion and passing final assessment.</Text>
 
-              <Text style={styles.label}>Email</Text>
-              <Text style={styles.value}>info@empowerskills.co.za</Text>
-
-              <Text style={styles.label}>Office Hours</Text>
-              <Text style={styles.value}>Monday to Friday: 08:00 – 17:00</Text>
-
-              <Text style={styles.label}>Physical Address</Text>
-              <Text style={styles.value}>
-                45 Progress Avenue{"\n"}
-                Cape Town{"\n"}
-                Western Cape, South Africa
-              </Text>
-
-              <Text style={styles.label}>Social Media</Text>
-              <Text style={styles.value}>
-                Facebook: @EmpowerSkillsAcademy{"\n"}
-                Instagram: @empower.skills{"\n"}
-                LinkedIn: Empower Skills Academy
-              </Text>
+      <Text style={styles.sectionTitle}>Requirements</Text>
+      <Text style={styles.sectionText}>No prior experience required. Must be 16+ years old. Basic English proficiency recommended.</Text>
             </ScrollView>
           </BlurView>
         </View>
 
+        {/* Total Fees Button */}
+        <TouchableOpacity style={styles.feesBtn} onPress={() => navigation.navigate('TotalFeesScreen')}>
+          <Text style={styles.feesText}>Total Fees</Text>
+        </TouchableOpacity>
 
-        
+
+
+
+
+
+
+
       </LinearGradient>
     </SafeAreaView>
 
   )
 };
-export default LifeSkillsScreen
+export default FirstAidScreen
 
 const styles = StyleSheet.create({
    safeAreaView: {
@@ -166,7 +168,6 @@ backText: {
   fontWeight: '500',
 
   },
-  
   glassWrapper: {
     flex: 1,
     justifyContent: 'center',
@@ -177,8 +178,8 @@ backText: {
     padding: 20,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.3)',
-    maxHeight: '65%',
-    marginTop: 150,
+    maxHeight: '60%',
+    marginTop: 200,
     overflow: 'hidden',
 
     marginLeft: 30,
@@ -187,24 +188,45 @@ backText: {
   scrollContent: {
     paddingBottom: 30,
   },
-   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
+  courseDescription: {
+    fontSize: 16,
     color: '#fff',
-    marginBottom: 20,
-    textAlign: 'center',
+    lineHeight: 24,
   },
-  label: {
+  courseTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#fff',
+  marginBottom: 15,
+  textAlign: 'center',
+},
+
+sectionTitle: {
+  fontSize: 18,
+  fontWeight: '600',
+  color: '#fff',
+  marginTop: 20,
+  marginBottom: 8,
+},
+
+sectionText: {
+  fontSize: 16,
+  color: '#fff',
+  lineHeight: 24,
+},
+
+  feesBtn: {
+     backgroundColor: '#007aff',
+    paddingVertical: 12,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginBottom: 80,
+    alignSelf: 'center'
+  },
+  feesText: {
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-    color: '#fff',
-    marginTop: 15,
-    marginBottom: 4,
-  },
-  value: {
-    fontSize: 16,
-    color: '#fff',
-    lineHeight: 22,
   },
 
 });

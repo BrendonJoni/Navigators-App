@@ -1,4 +1,4 @@
-// ContactScreen — contact info / support
+// SewingScreen — sewing course details
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
 
-const LifeSkillsScreen = ({ navigation }: { navigation: any }) => {
+const SewingScreen = ({ navigation }: { navigation: any }) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
@@ -50,48 +50,54 @@ const LifeSkillsScreen = ({ navigation }: { navigation: any }) => {
           )}
         </View>
 
-         <View style={styles.glassWrapper}>
+        <View style={styles.glassWrapper}>
           <BlurView intensity={80} tint="light" style={styles.glassBox}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
-              <Text style={styles.title}>Contact Information</Text>
+              <Text style={styles.courseTitle}>Sewing & Garment Construction</Text>
 
-              <Text style={styles.label}>Company Name</Text>
-              <Text style={styles.value}>Empower The Nation</Text>
-
-              <Text style={styles.label}>Phone</Text>
-              <Text style={styles.value}>+27 21 555 1234</Text>
-
-              <Text style={styles.label}>Email</Text>
-              <Text style={styles.value}>info@empowerskills.co.za</Text>
-
-              <Text style={styles.label}>Office Hours</Text>
-              <Text style={styles.value}>Monday to Friday: 08:00 – 17:00</Text>
-
-              <Text style={styles.label}>Physical Address</Text>
-              <Text style={styles.value}>
-                45 Progress Avenue{"\n"}
-                Cape Town{"\n"}
-                Western Cape, South Africa
+              <Text style={styles.sectionTitle}>Overview</Text>
+              <Text style={styles.sectionText}>
+                This hands-on course teaches the fundamentals of sewing, fabric handling, and garment creation. Learn how to operate sewing machines, read patterns, and design custom clothing.
               </Text>
 
-              <Text style={styles.label}>Social Media</Text>
-              <Text style={styles.value}>
-                Facebook: @EmpowerSkillsAcademy{"\n"}
-                Instagram: @empower.skills{"\n"}
-                LinkedIn: Empower Skills Academy
+              <Text style={styles.sectionTitle}>Modules</Text>
+              <Text style={styles.sectionText}>
+                • Sewing Machine Basics{"\n"}
+                • Fabric Types & Handling{"\n"}
+                • Pattern Reading & Cutting{"\n"}
+                • Stitching Techniques{"\n"}
+                • Garment Assembly & Finishing
               </Text>
+
+              <Text style={styles.sectionTitle}>Duration</Text>
+              <Text style={styles.sectionText}>6 Months (Weekday and weekend options)</Text>
+
+              <Text style={styles.sectionTitle}>Certification</Text>
+              <Text style={styles.sectionText}>Certificate of Completion issued by the Textile Skills Council.</Text>
+
+              <Text style={styles.sectionTitle}>Requirements</Text>
+              <Text style={styles.sectionText}>No prior sewing experience required. All materials provided.</Text>
             </ScrollView>
-          </BlurView>
+          </BlurView>  
         </View>
 
+        {/* Total Fees Button */}
+                <TouchableOpacity style={styles.feesBtn} onPress={() => navigation.navigate('TotalFeesScreen')}>
+                  <Text style={styles.feesText}>Total Fees</Text>
+                </TouchableOpacity>
 
-        
+
+
+
+
+
+
       </LinearGradient>
     </SafeAreaView>
 
   )
 };
-export default LifeSkillsScreen
+export default SewingScreen
 
 const styles = StyleSheet.create({
    safeAreaView: {
@@ -187,25 +193,41 @@ backText: {
   scrollContent: {
     paddingBottom: 30,
   },
-   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
-    textAlign: 'center',
+
+  courseTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#fff',
+  marginBottom: 15,
+  textAlign: 'center',
+},
+
+sectionTitle: {
+  fontSize: 18,
+  fontWeight: '600',
+  color: '#fff',
+  marginTop: 20,
+  marginBottom: 8,
+},
+
+sectionText: {
+  fontSize: 16,
+  color: '#fff',
+  lineHeight: 24,
+},
+
+  feesBtn: {
+     backgroundColor: '#007aff',
+    paddingVertical: 12,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginBottom: 80,
+    alignSelf: 'center'
   },
-  label: {
+  feesText: {
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-    color: '#fff',
-    marginTop: 15,
-    marginBottom: 4,
   },
-  value: {
-    fontSize: 16,
-    color: '#fff',
-    lineHeight: 22,
-  },
-
 });
 

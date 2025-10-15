@@ -1,4 +1,4 @@
-// ContactScreen — contact info / support
+// LifeSkillsScreen — life skills course
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
@@ -50,42 +50,46 @@ const LifeSkillsScreen = ({ navigation }: { navigation: any }) => {
           )}
         </View>
 
-         <View style={styles.glassWrapper}>
+        <View style={styles.glassWrapper}>
           <BlurView intensity={80} tint="light" style={styles.glassBox}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
-              <Text style={styles.title}>Contact Information</Text>
+              <Text style={styles.courseTitle}>Life Skills & Personal Development</Text>
 
-              <Text style={styles.label}>Company Name</Text>
-              <Text style={styles.value}>Empower The Nation</Text>
-
-              <Text style={styles.label}>Phone</Text>
-              <Text style={styles.value}>+27 21 555 1234</Text>
-
-              <Text style={styles.label}>Email</Text>
-              <Text style={styles.value}>info@empowerskills.co.za</Text>
-
-              <Text style={styles.label}>Office Hours</Text>
-              <Text style={styles.value}>Monday to Friday: 08:00 – 17:00</Text>
-
-              <Text style={styles.label}>Physical Address</Text>
-              <Text style={styles.value}>
-                45 Progress Avenue{"\n"}
-                Cape Town{"\n"}
-                Western Cape, South Africa
+              <Text style={styles.sectionTitle}>Overview</Text>
+              <Text style={styles.sectionText}>
+                This transformative course focuses on building essential life skills that empower individuals to thrive in personal, academic, and professional settings. Learners will explore communication strategies, emotional intelligence, financial literacy, and decision-making frameworks to navigate real-world challenges with confidence.
               </Text>
 
-              <Text style={styles.label}>Social Media</Text>
-              <Text style={styles.value}>
-                Facebook: @EmpowerSkillsAcademy{"\n"}
-                Instagram: @empower.skills{"\n"}
-                LinkedIn: Empower Skills Academy
+              <Text style={styles.sectionTitle}>Modules</Text>
+              <Text style={styles.sectionText}>
+                • Communication & Conflict Resolution{"\n"}
+                • Time & Stress Management{"\n"}
+                • Emotional Intelligence & Self-Awareness{"\n"}
+                • Financial Literacy & Budgeting{"\n"}
+                • Goal Setting & Decision Making{"\n"}
+                • Digital Citizenship & Online Safety
+              </Text>
+
+              <Text style={styles.sectionTitle}>Duration</Text>
+              <Text style={styles.sectionText}>6 Months (Flexible scheduling available)</Text>
+
+              <Text style={styles.sectionTitle}>Certification</Text>
+              <Text style={styles.sectionText}>
+                Certificate of Personal Development awarded upon successful completion. Endorsed by the National Life Skills Institute.
+              </Text>
+
+              <Text style={styles.sectionTitle}>Requirements</Text>
+              <Text style={styles.sectionText}>
+                Open to all learners aged 15 and above. No prior experience required. A willingness to reflect and grow is encouraged.
               </Text>
             </ScrollView>
           </BlurView>
         </View>
 
+        <TouchableOpacity style={styles.feesBtn} onPress={() => navigation.navigate('TotalFeesScreen')}>
+          <Text style={styles.feesText}>Total Fees</Text>
+        </TouchableOpacity>
 
-        
       </LinearGradient>
     </SafeAreaView>
 
@@ -187,25 +191,41 @@ backText: {
   scrollContent: {
     paddingBottom: 30,
   },
-   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
-    textAlign: 'center',
+
+  courseTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#fff',
+  marginBottom: 15,
+  textAlign: 'center',
+},
+
+sectionTitle: {
+  fontSize: 18,
+  fontWeight: '600',
+  color: '#fff',
+  marginTop: 20,
+  marginBottom: 8,
+},
+
+sectionText: {
+  fontSize: 16,
+  color: '#fff',
+  lineHeight: 24,
+},
+
+  feesBtn: {
+     backgroundColor: '#007aff',
+    paddingVertical: 12,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginBottom: 80,
+    alignSelf: 'center'
   },
-  label: {
+  feesText: {
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-    color: '#fff',
-    marginTop: 15,
-    marginBottom: 4,
   },
-  value: {
-    fontSize: 16,
-    color: '#fff',
-    lineHeight: 22,
-  },
-
 });
 
