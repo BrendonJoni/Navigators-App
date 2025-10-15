@@ -14,7 +14,8 @@ App entry: App.tsx mounts the navigation container and loads ScreenNav.
 Navigation: ScreenNav.tsx defines a native-stack navigator and registers each screen component (Login, Main, SixMonths, SixWeeks, FirstAid, Sewing, Cooking, GardenMaintenance, ChildMinding, LifeSkills, Contact, TotalFees, etc.).
 Screens: all UI screens live in screens (each file is a self contained React component that receives navigation via props). 
 
-Materials used 
+#Materials used 
 <img width="500" height="500" alt="empower theNation" src="https://github.com/user-attachments/assets/df06c32d-22a7-4ad5-9150-60b51c05cbfb" />
 
+![trump2030](https://github.com/user-attachments/assets/0a8580f5-99d7-4231-8b24-94d19cce450a)
 
